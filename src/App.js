@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { evaluate} from 'mathjs'
 //COMPONENTS
 import NumberKey from './components/NumberKey'
 import Button from './components/Button'
@@ -43,13 +44,18 @@ export default function App() {
     try {
       values = screen.toString()
       values = replaceAll(values, ',')
-      result = eval(values)
+      // result = eval(values)
+      result = evaluate(values)
       setScreen([ result])
     } catch (error) {
-      // console.error(error.message)
+      console.log(error.message)
       setScreen([ 'Syntax Error' ])
+      setTimeout(() =>{
+        handleResetScreen()
+      },500)
     }
   }
+
 
   return (
     <div className={ styles.App }>
