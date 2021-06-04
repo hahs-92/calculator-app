@@ -1,0 +1,78 @@
+.App {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: var(--Light-gray-main-BG);
+}
+
+.Container {
+    display: grid;
+    grid-template: 70px 70px minmax(50px, 1fr) / 1fr;
+    row-gap: 12px;
+    width: 90%;
+    height: 95%;
+    min-width: 320px;
+    max-width: 450px;
+}
+
+.Header {
+    grid-area: 1 / 1 / 2 / 2;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.Display {
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: var(--Very-light-gray-screen-BG);
+    border-radius: 12px;
+}
+
+.Display_container {
+    display: flex;
+    justify-content: flex-end;
+    overflow-wrap: anywhere;
+    width: 90%;
+}
+
+.Display_container h1 {
+    width: fit-content;
+}
+
+.KeyBoard {
+    grid-area: 3 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Grayish-red-toggle-BG-keypad-BG);
+    border-radius: 12px;
+}
+
+.KeyBoard_container {
+    justify-self: center;
+    display: grid;
+    grid-template: repeat(5, 20%) / repeat(4, 25%);
+    width: 90%;
+    height: 90%;
+    max-height: 480px;
+}
+
+.KeyBoard_container article {
+    padding: 8px;
+}
+
+.Reset {
+    grid-area: 5 / 1 / 6 / 3;
+}
+
+.Equal {
+    grid-area: 5 / 3 / 6 / 5;
+}

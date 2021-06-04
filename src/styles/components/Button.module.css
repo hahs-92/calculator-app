@@ -1,0 +1,17 @@
+.Button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.8rem;
+    outline: none;
+    cursor: pointer;
+}
+
+.Button:focus, .Button:hover {
+    transform: scale(1.095);
+}
+
+.Button:active {
+    transform: scale(.95);
+}
