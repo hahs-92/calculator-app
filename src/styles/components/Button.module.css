@@ -15,3 +15,44 @@
 .Button:active {
     transform: scale(.95);
 }
+
+/* ______________________THEME1______________________________________ */
+
+.Button__theme1 {
+    background-color: var(--Desaturated-dark-blue-key-BG); 
+    color: var(--White);
+    box-shadow: inset 0px -5px 0px var(--Desaturated-dark-blue-key-shadow)
+}
+
+.Button__theme1__complementary {
+    background-color: var(--Red-key-BG-toggle);  
+    color: var(--White);
+    box-shadow: inset 0px -5px 0px var(--Dark-red-key-shadow);
+}
+
+/* _______________________________THEME2______________________________ */
+
+.Button__theme2 {
+    background-color: var(--Dark-moderate-cyan-key-BG); 
+    color: var(--White);
+    box-shadow: inset 0px -5px 0px var(--Very-dark-cyan-key-shadow)
+}
+
+.Button__theme2__complementary {
+    background-color: var(--Orange-key-BG-toggle);  
+    box-shadow: inset 0px -5px 0px var(--Dark-orange-key-shadow);
+}
+
+/* ________________________________THEME3________________________________________ */
+
+.Button__theme3 {
+    background-color: var(--Dark-violet-key-BG); 
+    color: var(--White);
+    box-shadow: inset 0px -5px 0px var(--Vivid-magenta-key-shadow)
+}
+
+.Button__theme3__complementary {
+    background-color: var(--Pure-cyan-key-background-toggle);  
+    box-shadow: inset 0px -5px 0px var(--Soft-cyan-key-shadow);
+    color: var(--Very-dark-blue);
+}

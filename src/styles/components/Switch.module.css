@@ -1,0 +1,61 @@
+.Switch {
+    width: 60px;
+}
+
+.Numbers {
+    display: flex;
+}
+
+.Numbers h3 {
+    width: 20px;
+    text-align: center;
+}
+
+.Button {
+    height: 25px;
+}
+
+.Button button {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    border-radius: 999px;
+    padding: 1px;
+}
+
+.Button button div {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+/* _________________________________THEME1______________________________________ */
+
+.Button__theme1 button {
+    background-color: var(--Very-dark-desaturated-blue-toggle-BG-keypad-BG);
+}
+
+.Button__theme1 button div {
+    background-color: var(--Red-key-BG-toggle);
+}
+
+/* _____________________________THEME2____________________________________________ */
+
+.Button__theme2 button {
+    background-color: var(--Grayish-red-toggle-BG-keypad-BG);
+}
+
+.Button__theme2 button div {
+    background-color: var(--Orange-key-BG-toggle);
+}
+
+/* ___________________________THEME3____________________________________________ */
+
+.Button__theme3 button {
+    background-color: var(--Very-dark-violet-toggle-BG-keypad-BG-screen-BG);
+}
+
+.Button__theme3 button div {
+    background-color: var(--Pure-cyan-key-background-toggle);
+}
