@@ -3,11 +3,12 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    transition: all .6s;
 }
 
 .Container {
     display: grid;
-    grid-template: 70px 80px minmax(50px, 1fr) / 1fr;
+    grid-template: 70px 120px minmax(50px, 1fr) / 1fr;
     row-gap: 12px;
     width: 90%;
     height: 95%;
@@ -67,7 +68,6 @@
     grid-template: repeat(5, 20%) / repeat(4, 25%);
     width: 90%;
     height: 90%;
-    max-height: 480px;
 }
 
 .KeyBoard_container article {

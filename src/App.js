@@ -4,15 +4,15 @@ import { evaluate} from 'mathjs'
 import NumberKey from './components/NumberKey'
 import Button from './components/Button'
 import Switch from './components/Switch'
+//CONTEXT
+import { AppContext } from './context/AppContext'
 //ESTILOS
 import './styles/Global.css'
 import styles from './styles/App.module.css'
 
 
 export default function App() {
-  const theme1 = true,
-        theme2= false,
-        theme3= false
+  const [ theme, setTheme ] = useState('THEME1')
   const [ screen, setScreen ] = useState([])
 
   const handleClickNumber = (e) => {
@@ -53,30 +53,27 @@ export default function App() {
     } catch (error) {
       console.log(error.message)
       setScreen([ 'Syntax Error' ])
-      setTimeout(() =>{
-        handleResetScreen()
-      },500)
     }
   }
 
 
   return (
-    <>
+    <AppContext.Provider value={{ theme, setTheme }}>
       {
-        theme1 &&
+        theme === 'THEME1' &&
         <div className={ `${ styles.App } ${ styles.App__theme1 }` }>
           <section className={ `${ styles.Container } ${ styles.Container__theme1 }`}>
             <section className={ styles.Header }>
               <article>
                 <h1>calc</h1>
               </article>
-
+      
               <article className={ styles.Switch_Theme }>
                 <h3 className={ styles.Switch_Theme_title }>THEME</h3>
                 <Switch />
               </article>
             </section>
-
+      
             <section className={ `${ styles.Display } ${ styles.Display__theme1 }` }>
               <div className={ styles.Display_container }>
                 {
@@ -86,7 +83,7 @@ export default function App() {
                 }
               </div>
             </section>
-
+      
             <section className={ `${ styles.KeyBoard } ${ styles.KeyBoard__theme1 }` }>
               <div className={ styles.KeyBoard_container }>
                 <article>
@@ -145,12 +142,12 @@ export default function App() {
                 </article>
               </div>
             </section>
-
+      
           </section>
         </div>
       }
       {
-        theme2 &&
+        theme  === 'THEME2' &&
         <div className={ `${ styles.App } ${ styles.App__theme2 }` }>
           <section className={ `${ styles.Container } ${ styles.Container__theme2 }`}>
             <section className={ styles.Header }>
@@ -162,7 +159,7 @@ export default function App() {
                 <Switch />
               </article>
             </section>
-
+      
             <section className={ `${ styles.Display } ${ styles.Display__theme2 }` }>
               <div className={ styles.Display_container }>
                 {
@@ -172,7 +169,7 @@ export default function App() {
                 }
               </div>
             </section>
-
+      
             <section className={ `${ styles.KeyBoard } ${ styles.KeyBoard__theme2 }` }>
               <div className={ styles.KeyBoard_container }>
                 <article>
@@ -231,25 +228,25 @@ export default function App() {
                 </article>
               </div>
             </section>
-
+      
           </section>
         </div>
       }
       {
-        theme3 &&
+        theme === 'THEME3' &&
         <div className={ `${ styles.App } ${ styles.App__theme3 }` }>
           <section className={ `${ styles.Container } ${ styles.Container__theme3 }`}>
             <section className={ styles.Header }>
               <article>
                 <h1>calc</h1>
               </article>
-
+      
               <article className={ styles.Switch_Theme }>
                 <h3 className={ styles.Switch_Theme_title }>THEME</h3>
                 <Switch />
               </article>
             </section>
-
+      
             <section className={ `${ styles.Display } ${ styles.Display__theme3 }` }>
               <div className={ styles.Display_container }>
                 {
@@ -259,7 +256,7 @@ export default function App() {
                 }
               </div>
             </section>
-
+      
             <section className={ `${ styles.KeyBoard } ${ styles.KeyBoard__theme3 }` }>
               <div className={ styles.KeyBoard_container }>
                 <article>
@@ -318,11 +315,12 @@ export default function App() {
                 </article>
               </div>
             </section>
-
+      
           </section>
         </div>
       }
-    </>
+    </AppContext.Provider>
+
   );
 }
  

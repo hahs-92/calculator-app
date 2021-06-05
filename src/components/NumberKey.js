@@ -1,15 +1,16 @@
+import { useContext } from 'react'
+//CONTEXT
+import { AppContext } from '../context/AppContext'
 //ESTILOS
 import styles from '../styles/components/NumberKey.module.css'
 
 const NumberKey = (props) => {
-    const theme1 = true,
-          theme2 = false,
-          theme3 = false
+    const { theme } = useContext(AppContext)    
 
     return(
         <>
             {
-                theme1 &&
+                theme === 'THEME1' &&
                 <button 
                 type='button' 
                 aria-label='NumberKey' 
@@ -20,7 +21,7 @@ const NumberKey = (props) => {
                 </button>
             }
             {
-                theme2 &&
+                theme === 'THEME2' &&
                 <button 
                 type='button' 
                 aria-label='NumberKey' 
@@ -31,7 +32,7 @@ const NumberKey = (props) => {
                 </button>
             }
             {
-                theme3 &&
+                theme === 'THEME3' &&
                 <button 
                 type='button' 
                 aria-label='NumberKey' 

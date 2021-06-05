@@ -1,5 +1,4 @@
 //ESTILOS
-import { factorialDependencies } from 'mathjs'
 import styles from '../styles/components/Button.module.css'
 
 const Button = (props) => {
