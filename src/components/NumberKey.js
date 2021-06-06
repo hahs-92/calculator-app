@@ -8,41 +8,14 @@ const NumberKey = (props) => {
     const { theme } = useContext(AppContext)    
 
     return(
-        <>
-            {
-                theme === 'THEME1' &&
-                <button 
-                type='button' 
-                aria-label='NumberKey' 
-                onClick={ props.handleClickNumber }
-                className={ `${ styles.NumberKey } ${ styles.NumberKey__theme1 }` }
-                >
-                    { props.number }
-                </button>
-            }
-            {
-                theme === 'THEME2' &&
-                <button 
-                type='button' 
-                aria-label='NumberKey' 
-                onClick={ props.handleClickNumber }
-                className={ `${ styles.NumberKey } ${ styles.NumberKey__theme2 }` }
-                >
-                    { props.number }
-                </button>
-            }
-            {
-                theme === 'THEME3' &&
-                <button 
-                type='button' 
-                aria-label='NumberKey' 
-                onClick={ props.handleClickNumber }
-                className={ `${ styles.NumberKey } ${ styles.NumberKey__theme3 }` }
-                >
-                    { props.number }
-                </button>
-            }
-        </>
+        <button 
+            type='button' 
+            aria-label='NumberKey' 
+            onClick={ props.handleClickNumber }
+            className={ `${ styles.NumberKey } ${ styles[`NumberKey__${ theme }`] }` }
+            >
+                { props.number }
+        </button>     
     ) 
 }
 

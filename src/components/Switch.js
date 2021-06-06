@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 //CONTEXT
 import { AppContext } from '../context/AppContext'
 //ESTILOS
@@ -7,82 +7,55 @@ import styles from '../styles/components/Switch.module.css'
 const Switch = () => {
     // const [ theme, setTheme ] = useState('THEME1')
     const { theme, setTheme } = useContext(AppContext)
+    const [ justify, setJustify ] = useState('flex-start')
    
     const handleTheme1 = () => {
-        setTheme('THEME1')
+        setTheme('theme1')
     }
 
     const handleTheme2 = () => {
-        setTheme('THEME2')
+        setTheme('theme2')
     }
 
     const handleTheme3 = () => {
-        setTheme('THEME3')
+        setTheme('theme3')
     }
 
+    const setJustifyContent = () => {
+        if(theme === 'theme1'){
+            setJustify('flex-start')
+        }
+        if(theme === 'theme2') {
+            setJustify('center')
+        }
+        if(theme === 'theme3') {
+            setJustify('flex-end')
+        }
+    }
+
+    useEffect(() => {
+        setJustifyContent()
+        // eslint-disable-next-line 
+    },[ theme ])
+
     return(
-        <>
-            {
-                theme === 'THEME1' &&
-                <article className={ styles.Switch }>
-                    <section className={ styles.Numbers }>
-                        <h3>1</h3>
-                        <h3>2</h3>
-                        <h3>3</h3>
+        <article className={ styles.Switch }>
+            <section className={ styles.Numbers }>
+                <h3>1</h3>
+                <h3>2</h3>
+                <h3>3</h3>
+            </section>
+            <section className={ `${ styles.Button } ${ styles[`Button__${ theme }`]}` }>
+                <button type='button' aria-label='switch' style={ { justifyContent: justify }}>
+                    <div className={ `${ styles.Circle } ${ styles[`Circle__${ theme }`] }` }></div>
+                    <section className={ styles.Wrapper }>
+                        <div onClick={ handleTheme1 }></div>
+                        <div onClick={ handleTheme2 }></div>
+                        <div onClick={ handleTheme3 }></div>
                     </section>
-                    <section className={ `${ styles.Button } ${ styles.Button__theme1}` }>
-                        <button type='button' aria-label='switch' style={ { justifyContent: 'flex-start' }}>
-                            <div className={ `${ styles.Circle } ${ styles.Circle__theme1 }` }></div>
-                            <section className={ styles.Wrapper }>
-                                <div onClick={ handleTheme1 }></div>
-                                <div onClick={ handleTheme2 }></div>
-                                <div onClick={ handleTheme3 }></div>
-                            </section>
-                        </button>
-                    </section>
-                </article>
-            }
-            {
-                theme === 'THEME2' &&
-                <article className={ styles.Switch }>
-                    <section className={ styles.Numbers }>
-                        <h3>1</h3>
-                        <h3>2</h3>
-                        <h3>3</h3>
-                    </section>
-                    <section className={ `${ styles.Button } ${ styles.Button__theme2 }` }>
-                        <button type='button' aria-label='switch' style={ { justifyContent: 'center' }}>
-                            <div className={ `${ styles.Circle } ${ styles.Circle__theme2 }` }></div>
-                            <section className={ styles.Wrapper }>
-                                <div onClick={ handleTheme1 }></div>
-                                <div onClick={ handleTheme2 }></div>
-                                <div onClick={ handleTheme3 }></div>
-                            </section>
-                        </button>
-                    </section>
-                </article>
-            }
-            {
-                theme === 'THEME3' &&
-                <article className={ styles.Switch }>
-                    <section className={ styles.Numbers }>
-                        <h3>1</h3>
-                        <h3>2</h3>
-                        <h3>3</h3>
-                    </section>
-                    <section className={ `${ styles.Button } ${ styles.Button__theme3 }` }>
-                        <button type='button' aria-label='switch' style={ { justifyContent: 'flex-end' }}>
-                            <div className={ `${ styles.Circle } ${ styles.Circle__theme3 }` }></div>
-                            <section className={ styles.Wrapper }>
-                                <div onClick={ handleTheme1 }></div>
-                                <div onClick={ handleTheme2 }></div>
-                                <div onClick={ handleTheme3 }></div>
-                            </section>
-                        </button>
-                    </section>
-                </article>
-            }
-        </>
+                </button>
+            </section>
+        </article> 
     )
 }
 
